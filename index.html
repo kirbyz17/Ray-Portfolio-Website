@@ -43,6 +43,11 @@
         .contact-info:hover {
             text-decoration: underline;
         }
+        .title {
+            font-size: 1.2rem;
+            color: #ffffff;
+            margin-top: 10px;
+        }
 
         .linkedin-link {
             position: absolute;
@@ -154,26 +159,6 @@
             left: 20px;
         }
 
-        .thesis-video {
-    width: 100%; /* Use 100% width of the container */
-    max-width: 900px; /* Increased max-width for larger videos */
-    height: auto; /* Maintain aspect ratio */
-    display: block; /* Ensure videos stack vertically */
-    margin: 20px auto; /* Center videos with margin */
-    border: 2px solid #ccc; /* Optional: Add a border for better visibility */
-    border-radius: 8px; /* Optional: Add rounded corners */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optional: Add subtle shadow */
-}
-
-#thesis-gallery {
-    display: flex; /* Use flexbox for layout */
-    flex-direction: column; /* Stack videos vertically */
-    align-items: center; /* Center videos horizontally */
-    gap: 20px; /* Space between videos */
-}
-
-
-
         .next {
             right: 20px;
         }
@@ -191,6 +176,41 @@
         .tab-content.active {
             display: block; /* Show active tab content */
         }
+/* Thesis Films Styling */
+.thesis-gallery {
+    display: flex;
+    flex-direction: column; /* Stack videos vertically */
+    align-items: center;    /* Center align videos */
+    gap: 30px;              /* Add space between videos */
+    padding: 20px;
+}
+
+.video-container {
+    max-width: 1200px; /* Set a larger maximum width for the videos */
+    width: 100%;       /* Make the video responsive */
+    text-align: center;
+}
+
+video {
+    width: 100%;       /* Full width inside the container */
+    height: auto;      /* Maintain aspect ratio */
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Add a shadow for better visibility */
+    transition: transform 0.3s ease;           /* Add hover effect transition */
+}
+
+video:hover {
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.video-container p {
+    font-size: 1.2rem;  /* Larger caption text */
+    color: #ffffff;     /* White text */
+    margin-top: 10px;   /* Space between video and text */
+    font-family: Arial, sans-serif;
+    line-height: 1.4;
+}
+
     </style>
 </head>
 <body>
@@ -198,7 +218,7 @@
         <h1>RAY ZAMORA</h1>
         <a href="mailto:rayazamora2003@gmail.com" class="contact-info">rayazamora2003@gmail.com</a>
         <a href="tel:+18185546568" class="contact-info">+1 (818) 554-6568</a>
-        
+        <p class="title">Visual Development and Background Artist</p>
         <a href="https://www.linkedin.com/in/ray-zamora/" class="linkedin-link" target="_blank" aria-label="LinkedIn">
             <svg class="linkedin-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                 <path d="M22.23 0H1.77C.792 0 0 .774 0 1.73v20.54C0 23.226.792 24 1.77 24h20.46C23.208 24 24 23.226 24 22.27V1.73C24 .774 23.208 0 22.23 0zM7.06 20.452H3.56V9.018h3.5v11.434zM5.31 7.634c-1.104 0-1.994-.895-1.994-2 0-1.107.89-2.002 1.994-2.002 1.107 0 2 .895 2 2.002 0 1.105-.893 2-2 2zm15.142 12.818h-3.5v-5.6c0-1.337-.027-3.057-1.86-3.057-1.86 0-2.145 1.45-2.145 2.955v5.702h-3.5V9.018h3.36v1.558h.049c.468-.884 1.61-1.817 3.315-1.817 3.546 0 4.2 2.334 4.2 5.367v6.326z"/>
@@ -209,26 +229,85 @@
     <!-- Navigation Tabs -->
     <div class="tabs">
         <a href="#home" class="tab">Home</a>
-        <a href="#gallery-tab" class="tab">Gallery</a>
+        <a href="#visual-development" class="tab">Visual Development</a> 
+        <a href="#backgrounds-tab" class="tab">Backgrounds</a>
         <a href="#thesis" class="tab">Thesis Films</a>
-        <a href="#other-artwork" class="tab">Other Artwork</a>
     </div>
 
     <div id="thesis" class="tab-content">
         <h2>Thesis Films</h2>
-        <div class="gallery" id="thesis-gallery">
-            <video controls class="thesis-video">
-                <source src="Videos/The Last Resort ‘Junior Thesis’.MP4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-            <video controls class="thesis-video">
-                <source src="Videos/Eden Animatic 'Senior Thesis'.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+        <div class="thesis-gallery">
+            <div class="video-container">
+                <video controls>
+                    <source src="Videos/The Last Resort ‘Junior Thesis’.MP4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p>The Last Resort: Junior Thesis</p>
+            </div>
+            <div class="video-container">
+                <video controls>
+                    <source src="Videos/Eden Animatic 'Senior Thesis'.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p>Eden Animatic: Senior Thesis</p>
+            </div>
         </div>
-    </div>    
+    </div>
     
-    <!-- Tab Content -->
+<!-- Backgrounds Tab Content -->
+<div id="backgrounds-tab" class="tab-content">
+    <h2>Backgrounds</h2>
+    <div class="gallery" id="backgrounds-gallery">
+        <img src="Images/Senior Thesis Background 01.png" alt="Background Image 1" onclick="openLightbox('backgrounds', 0)">
+        <img src="Images/Senior Thesis Background 02.png" alt="Background Image 2" onclick="openLightbox('backgrounds', 1)">
+        <img src="Images/Senior Thesis Background 04.png" alt="Background Image 3" onclick="openLightbox('backgrounds', 2)">
+        <img src="Images/Senior Thesis News BG.png " alt="Background Image 3" onclick="openLightbox('backgrounds', 3)">
+        <img src="Images/Senior Thesis Shot 01.png" alt="Background Image 4" onclick="openLightbox('backgrounds', 4)">
+        <img src="Images/Thesis Backgrounds Church 01.png" alt="Background Image 5" onclick="openLightbox('backgrounds', 5)">
+        <img src="Images/Eden and Mela.png" alt="Background Image 6" onclick="openLightbox('backgrounds', 6)">
+        <img src="Images/Senior Thesis BG Beach01.png" alt="Background Image 7" onclick="openLightbox('backgrounds', 7)">
+        <img src="Images/Senior Thesis Beach BG02.png" alt="Background Image 8" onclick="openLightbox('backgrounds', 8)">
+        <img src="Images/Senior Thesis Library BG 01.png" alt="Background Image 9" onclick="openLightbox('backgrounds', 9)">
+        <img src="Images/Birds silhouette BG.png" alt="Background Image 10" onclick="openLightbox('backgrounds', 10)">
+        <img src="Images/Junior Thesis Background 01.png" alt="Background Image 11" onclick="openLightbox('backgrounds', 11)">
+        <img src="Images/Junior Thesis Background 02.png" alt="Background Image 12" onclick="openLightbox('backgrounds', 12)">
+        <img src="Images/Junior Thesis Background 03.png" alt="Background Image 13" onclick="openLightbox('backgrounds', 13)">
+        <img src="Images/Junior Thesis Background 04.png" alt="Background Image 14" onclick="openLightbox('backgrounds', 14)">
+        <img src="Images/Junior Thesis Background 05.png" alt="Background Image 15" onclick="openLightbox('backgrounds', 15)">
+        <img src="Images/Junior Thesis Background 06.png" alt="Background Image 16" onclick="openLightbox('backgrounds', 16)">
+        <img src="Images/Junior Thesis Closeup Shot.png" alt="Background Image 17" onclick="openLightbox('backgrounds', 17)">
+        <img src="Images/beach psa topview water.png" alt="Background Image 18" onclick="openLightbox('backgrounds', 18)">
+    </div>
+</div>
+
+<!-- Visual Development Tab Content -->
+<div id="visual-development" class="tab-content">
+    <h2>Visual Development</h2>
+    <div class="gallery" id="visual-development-gallery">
+        <img src="Images/Axolotl Hybrid.jpg" alt="Visual Development Image 1" onclick="openLightbox('visual-development', 0)">
+        <img src="Images/Axolotl Attack .png" alt="Visual Development Image 2" onclick="openLightbox('visual-development', 1)">
+        <img src="Images/News_Station Concept.png" alt="Visual Development Image 3" onclick="openLightbox('visual-development', 2)">
+        <img src="Images/Oppenheimer Concept Character Lineup.png" alt="Visual Development Image 3" onclick="openLightbox('visual-development', 3)">
+        <img src="Images/Oppemheimer Leslie(Cat) LineUp.png" alt="Visual Development Image 4" onclick="openLightbox('visual-development', 4)">
+        <img src="Images/Oppenheimer Concept Prop Design.png" alt="Visual Development Image 5" onclick="openLightbox('visual-development', 5)">
+        <img src="Images/Oppenheimer Characters' Interactions.png" alt="Visual Development Image 6" onclick="openLightbox('visual-development', 6)">
+        <img src="Images/Oppenheimer Environment Rough Sketch 01.png" alt="Visual Development Image 7" onclick="openLightbox('visual-development', 7)">
+        <img src="Images/Oppenheimer Environment Rough Sketch 02.png" alt="Visual Development Image 8" onclick="openLightbox('visual-development', 8)">
+        <img src="Images/Oppenheimer Enviroment Design.png" alt="Visual Development Image 9" onclick="openLightbox('visual-development', 9)">
+        <img src="Images/Oppenheimer Environment Rough Sketch-Allyway.png" alt="Visual Development Image 10" onclick="openLightbox('visual-development', 10)">
+        <img src="Images/Oppenheimer Environmental Characters.png" alt="Visual Development Image 11" onclick="openLightbox('visual-development', 11)">
+        <img src="Images/Oppenhiemer ColourScripts.png" alt="Visual Development Image 12" onclick="openLightbox('visual-development', 12)">
+        <img src="Images/Senior Thesis Library - Concept.png" alt="Visual Development Image 13" onclick="openLightbox('visual-development', 13)">
+        <img src="Images/Senior Thesis Background No Colour 03.png" alt="Visual Development Image 14" onclick="openLightbox('visual-development', 14)">
+        <img src="Images/Senior Thesis BG04.png" alt="Visual Development Image 15" onclick="openLightbox('visual-development', 15)">
+        <img src="Images/Senior Thesis Mela’s Death ROUGH.png" alt="Visual Development Image 16" onclick="openLightbox('visual-development', 16)">
+        <img src="Images/Senior Thesis NoColour Library 01.png" alt="Visual Development Image 17" onclick="openLightbox('visual-development', 17)">
+        <img src="Images/Senior Thesis NoColour Library 02.png" alt="Visual Development Image 18" onclick="openLightbox('visual-development', 18)">
+        <img src="Images/Eden ‘Church’.jpg" alt="Visual Development Image 19" onclick="openLightbox('visual-development', 19)">
+    </div>
+</div>
+
+    <!-- Home Tab Content -->
     <div id="home" class="tab-content active">
         <div class="gallery" id="gallery">
             <img src="Images/Eden ‘Church’.jpg" alt="Gallery Image 1" onclick="openLightbox('home', 0)">
@@ -238,155 +317,179 @@
             <img src="Images/Oppenhiemer ColourScripts.png" alt="Gallery Image 5" onclick="openLightbox('home', 4)">
             <img src="Images/Oppenheimer Characters' Interactions.png" alt="Gallery Image 6" onclick="openLightbox('home', 5)">
             <img src="Images/Junior Thesis Background 06.png" alt="Gallery Image 7" onclick="openLightbox('home', 6)">
-            <img src="Images/Senior Thesis BG Beach01.png" alt="Gallery Image 8" onclick="openLightbox('home', 7)">
+            <img src="Images/Axolotl Attack .png" alt="Gallery Image 8" onclick="openLightbox('home', 7)">
             <img src="Images/The Last Resort ‘Junior Thesis’.gif" alt="Gallery Image 9" onclick="openLightbox('home', 8)">
-            <img src="Images/Senior Thesis BG04.png" alt="Gallery Image 10" onclick="openLightbox('home', 9)">
+            <img src="Images/Senior Thesis Background 01.png" alt="Gallery Image 10" onclick="openLightbox('home', 9)">
         </div>
     </div>
 
-    <div id="gallery-tab" class="tab-content">
-        <h2>Gallery Content</h2>
-        <div class="gallery" id="gallery">
-            <img src="Images/Oppenheimer Concept Character Lineup.png" alt="New Image 1" onclick="openLightbox('gallery', 0)">
-            <img src="Images/Oppemheimer Leslie(Cat) LineUp.png" alt="New Image 2" onclick="openLightbox('gallery', 1)">
-            <img src="Images/Oppenheimer Concept Prop Design.png" alt="New Image 3" onclick="openLightbox('gallery', 2)">
-            <img src="Images/Oppenheimer Enviroment Design.png" alt="New Image 4" onclick="openLightbox('gallery', 3)">
-            <img src="Images/Oppenheimer Characters' Interactions.png" alt="New Image 5" onclick="openLightbox('gallery', 4)">
-            <img src="Images/Oppenheimer Environmental Characters.png" alt="New Image 6" onclick="openLightbox('gallery', 5)">
-            <img src="Images/Oppenheimer Environment Rough Sketch-Allyway.png" alt="New Image 7" onclick="openLightbox('gallery', 6)">
-            <img src="Images/Oppenheimer Environment Rough Sketch 01.png" alt="New Image 8" onclick="openLightbox('gallery', 7)">
-            <img src="Images/Oppenheimer Environment Rough Sketch 02.png" alt="New Image 8" onclick="openLightbox('gallery', 8)">
-            <img src="Images/Oppenhiemer ColourScripts.png" alt="New Image 9" onclick="openLightbox('gallery', 9)">
-            <img src="Images/Axolotl Hybrid.jpg" alt="New Image 10" onclick="openLightbox('gallery', 10)">
-            <img src="Images/Senior Thesis BG Beach01.png" alt="New Image 11" onclick="openLightbox('gallery', 11)">
-            <img src="Images/Senior Thesis Beach BG02.png" alt="New Image 12" onclick="openLightbox('gallery', 12)">
-            <img src="Images/Senior Thesis Library - Concept.png" alt="New Image 13" onclick="openLightbox('gallery', 13)">
-            <img src="Images/Junior Thesis Background 01.png" alt="New Image 14" onclick="openLightbox('gallery', 14)">
-            <img src="Images/Junior Thesis Background 02.png" alt="New Image 15" onclick="openLightbox('gallery', 15)">
-            <img src="Images/Junior Thesis Background 03.png" alt="New Image 16" onclick="openLightbox('gallery', 16)">
-            <img src="Images/Junior Thesis Background 04.png" alt="New Image 17" onclick="openLightbox('gallery', 17)">
-            <img src="Images/Junior Thesis Background 05.png" alt="New Image 18" onclick="openLightbox('gallery', 18)">
-            <img src="Images/Junior Thesis Background 06.png" alt="New Image 19" onclick="openLightbox('gallery', 19)">
-            <img src="Images/Junior Thesis Closeup Shot.png" alt="New Image 20" onclick="openLightbox('gallery', 20)">
-            <img src="Images/Eden and Mela.png" alt="New Image 21" onclick="openLightbox('gallery', 21)">
-            <img src="Images/Eden ‘Church’.jpg" alt="New Image 22" onclick="openLightbox('gallery', 22)">
-            <img src="Images/Senior Thesis NoColour Library 01.png" alt="New Image 23" onclick="openLightbox('gallery', 23)">
-            <img src="Images/Senior Thesis NoColour Library 02.png" alt="New Image 24" onclick="openLightbox('gallery', 24)">
-            <img src="Images/Senior Thesis BG04.png" alt="New Image 25" onclick="openLightbox('gallery', 25)">
-            <img src="Images/PSA-BEACH.png" alt="New Image 26" onclick="openLightbox('gallery', 26)">
-            <img src="Images/beach psa topview water.png" alt="New Image 27" onclick="openLightbox('gallery', 27)">
-            <img src="Images/beach psa topview no water.png" alt="New Image 28" onclick="openLightbox('gallery', 28)">
-            <img src="Images/Zombie Hand.jpg" alt="New Image 29" onclick="openLightbox('gallery', 29)">
-        </div>
-    </div>
-
-    <div id="thesis" class="tab-content">
-        <h2>Thesis Films</h2>
-
-    </div>
-
-    <div id="other-artwork" class="tab-content">
-        <h2>Other Artwork</h2>
-        <p>Generalist </p>
-    </div>
-
-    <!-- Lightbox -->
-    <div class="lightbox" id="lightbox">
-        <span class="close" onclick="closeLightbox()">&times;</span>
-        <img id="lightbox-image" src="" alt="Lightbox Image">
+    <div class="lightbox" id="lightbox-home">
+        <a href="javascript:void(0)" class="close" onclick="closeLightbox()">×</a>
         <span class="nav-arrow prev" onclick="changeImage(-1)">&#10094;</span>
+        <img id="lightbox-image" src="" alt="Expanded Image">
+        <span class="nav-arrow next" onclick="changeImage(1)">&#10095;</span>
+    </div>
+
+    
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ray Zamora</title>
+    <style>
+        /* Add your existing CSS styles here */
+    </style>
+</head>
+<body>
+    <!-- Existing HTML structure here -->
+
+    <!-- Lightbox for viewing images -->
+    <div class="lightbox" id="lightbox-home">
+        <a href="javascript:void(0)" class="close" onclick="closeLightbox()">×</a>
+        <span class="nav-arrow prev" onclick="changeImage(-1)">&#10094;</span>
+        <img id="lightbox-image" src="" alt="Expanded Image">
         <span class="nav-arrow next" onclick="changeImage(1)">&#10095;</span>
     </div>
 
     <script>
-        const homeImages = [
-            "Images/Eden ‘Church’.jpg",
-            "Images/Axolotl Hybrid.jpg",
-            "Images/Oppenheimer Enviroment Design.png",
-            "Images/Oppenheimer Environmental Characters.png",
-            "Images/Oppenhiemer ColourScripts.png",
-            "Images/Oppenheimer Characters' Interactions.png",
-            "Images/Junior Thesis Background 06.png",
-            "Images/Senior Thesis BG Beach01.png",
-            "Images/The Last Resort ‘Junior Thesis’.gif",
-            "Images/Senior Thesis BG04.png"
-        ];
+       let currentImageIndex = 0;  // Track the current image index
+let currentTab = 'home';  // Default tab is 'home'
 
-        const galleryImages = [
-            "Images/Oppenheimer Concept Character Lineup.png",
-            "Images/Oppemheimer Leslie(Cat) LineUp.png",
-            "Images/Oppenheimer Concept Prop Design.png",
-            "Images/Oppenheimer Enviroment Design.png",
-            "Images/Oppenheimer Characters' Interactions.png",
-            "Images/Oppenheimer Environmental Characters.png",
-            "Images/Oppenheimer Environment Rough Sketch-Allyway.png",
-            "Images/Oppenheimer Environment Rough Sketch 01.png",
-            "Images/Oppenheimer Environment Rough Sketch 02.png",
-            "Images/Oppenhiemer ColourScripts.png",
-            "Images/Axolotl Hybrid.jpg",
-            "Images/Senior Thesis BG Beach01.png",
-            'Images/Senior Thesis Beach BG02.png',
-            'Images/Senior Thesis Library - Concept.png',
-            'Images/Junior Thesis Background 01.png',
-            'Images/Junior Thesis Background 02.png',
-            'Images/Junior Thesis Background 03.png',
-            'Images/Junior Thesis Background 04.png',
-            'Images/Junior Thesis Background 05.png',
-            'Images/Junior Thesis Background 06.png',
-            'Images/Junior Thesis Closeup Shot.png',
-            'Images/Eden and Mela.png',
-            'Images/Eden ‘Church’.jpg',
-            'Images/Senior Thesis NoColour Library 01.png',
-            'Images/Senior Thesis NoColour Library 02.png',
-            'Images/Senior Thesis BG04.png',
-            'Images/PSA-BEACH.png',
-            'Images/beach psa topview water.png',
-            'Images/beach psa topview no water.png',
-            'Images/Zombie Hand.jpg'
-        ];
+// Image arrays for different categories
+const images = [
+    "Images/Eden ‘Church’.jpg",
+    "Images/Axolotl Hybrid.jpg",
+    "Images/Oppenheimer Enviroment Design.png",
+    "Images/Oppenheimer Environmental Characters.png",
+    "Images/Oppenhiemer ColourScripts.png",
+    "Images/Oppenheimer Characters' Interactions.png",
+    "Images/Junior Thesis Background 06.png",
+    "Images/Axolotl Attack .png",
+    'Images/The Last Resort ‘Junior Thesis’.gif',
+    'Images/Senior Thesis Background 01.png'
+];
 
-        let currentImageIndex = 0;
-        let currentTab = 'home'; // Keep track of the current tab
+const backgroundsImages = [
+    "Images/Senior Thesis Background 01.png",
+    "Images/Senior Thesis Background 02.png",
+    "Images/Senior Thesis Background 04.png",
+    "Images/Senior Thesis News BG.png",
+    'Images/Senior Thesis Shot 01.png',
+    'Images/Thesis Backgrounds Church 01.png',
+    'Images/Eden and Mela.png',
+    'Images/Senior Thesis BG Beach01.png',
+    'Images/Senior Thesis Beach BG02.png',
+    'Images/Senior Thesis Library BG 01.png',
+    'Images/Birds silhouette BG.png',
+    'Images/Junior Thesis Background 01.png',
+    'Images/Junior Thesis Background 02.png',
+    'Images/Junior Thesis Background 03.png',
+    'Images/Junior Thesis Background 04.png',
+    'Images/Junior Thesis Background 05.png',
+    'Images/Junior Thesis Background 06.png',
+    'Images/Junior Thesis Closeup Shot.png',
+    'Images/beach psa topview water.png'
+];
 
-        function openLightbox(tab, index) {
-            currentTab = tab; // Set current tab
-            currentImageIndex = index;
-            const images = tab === 'home' ? homeImages : galleryImages; // Select appropriate images
-            document.getElementById('lightbox-image').src = images[currentImageIndex];
-            document.getElementById('lightbox').classList.add('active');
-        }
+const visualDevelopmentImages = [
+    "Images/Axolotl Hybrid.jpg",
+    "Images/Axolotl Attack .png",
+    'Images/News_Station Concept.png',
+    'Images/Oppenheimer Concept Character Lineup.png',
+    'Images/Oppemheimer Leslie(Cat) LineUp.png',
+    'Images/Oppenheimer Concept Prop Design.png',
+    "Images/Oppenheimer Characters' Interactions.png",
+    'Images/Oppenheimer Environment Rough Sketch 01.png',
+    'Images/Oppenheimer Environment Rough Sketch 02.png',
+    'Images/Oppenheimer Enviroment Design.png',
+    'Images/Oppenheimer Environment Rough Sketch-Allyway.png',
+    'Images/Oppenheimer Environmental Characters.png',
+    'Images/Oppenhiemer ColourScripts.png',
+    'Images/Senior Thesis Library - Concept.png',
+    'Images/Senior Thesis Background No Colour 03.png',
+    'Images/Senior Thesis BG04.png',
+    'Images/Senior Thesis Mela’s Death ROUGH.png',
+    'Images/Senior Thesis NoColour Library 01.png',
+    'Images/Senior Thesis NoColour Library 02.png',
+    'Images/Eden ‘Church’.jpg'
+];
 
-        function closeLightbox() {
-            document.getElementById('lightbox').classList.remove('active');
-        }
+// Open the lightbox when an image is clicked
+function openLightbox(tab, index) {
+    currentImageIndex = index;  // Update the current index
+    let imageArray;
 
-        function changeImage(direction) {
-            const images = currentTab === 'home' ? homeImages : galleryImages; // Select appropriate images
-            currentImageIndex += direction;
-            if (currentImageIndex < 0) currentImageIndex = images.length - 1;
-            if (currentImageIndex >= images.length) currentImageIndex = 0;
-            document.getElementById('lightbox-image').src = images[currentImageIndex];
-        }
+    // Set the correct image array based on the tab clicked
+    if (tab === 'home') {
+        imageArray = images;
+    } else if (tab === 'backgrounds') {
+        imageArray = backgroundsImages;
+    } else if (tab === 'visual-development') {
+        imageArray = visualDevelopmentImages;
+    }
 
-        // Tab switching functionality
-        const tabs = document.querySelectorAll('.tab');
-        const tabContents = document.querySelectorAll('.tab-content');
+    // Set the lightbox image and show it
+    document.getElementById('lightbox-image').src = imageArray[currentImageIndex];
+    document.getElementById('lightbox-home').classList.add('active');
+    currentTab = tab;  // Set the current tab to allow proper navigation
+}
 
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                const target = tab.getAttribute('href').substring(1);
+// Close the lightbox
+function closeLightbox() {
+    document.getElementById('lightbox-home').classList.remove('active');
+}
 
-                tabContents.forEach(content => {
-                    content.classList.remove('active');
-                });
-                document.getElementById(target).classList.add('active');
+// Change image based on direction (next/previous)
+function changeImage(direction) {
+    let imageArray;
 
-                tabs.forEach(t => {
-                    t.classList.remove('active');
-                });
-                tab.classList.add('active');
-            });
-        });
+    // Determine which image array to use based on the current tab
+    if (currentTab === 'home') {
+        imageArray = images;
+    } else if (currentTab === 'backgrounds') {
+        imageArray = backgroundsImages;
+    } else if (currentTab === 'visual-development') {
+        imageArray = visualDevelopmentImages;
+    }
+
+    // Update the current image index based on the direction
+    currentImageIndex += direction;
+
+    // Loop through the images if at the beginning or end
+    if (currentImageIndex < 0) {
+        currentImageIndex = imageArray.length - 1;
+    } else if (currentImageIndex >= imageArray.length) {
+        currentImageIndex = 0;
+    }
+
+    // Update the lightbox image
+    document.getElementById('lightbox-image').src = imageArray[currentImageIndex];
+}
+
+// Handle tab switching
+function switchTab(event, tabId) {
+    const tabContents = document.querySelectorAll('.tab-content');
+    tabContents.forEach(content => content.classList.remove('active'));
+
+    const tabs = document.querySelectorAll('.tab');
+    tabs.forEach(tab => tab.classList.remove('active'));
+
+    const selectedTabContent = document.querySelector(tabId);
+    selectedTabContent.classList.add('active');
+    event.currentTarget.classList.add('active');
+
+    // Update the currentTab variable
+    currentTab = tabId.replace('#', '');
+}
+
+// Add click event listeners to all tabs
+document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', function(event) {
+        const tabId = this.getAttribute('href');
+        switchTab(event, tabId);
+    });
+});
     </script>
 </body>
 </html>
